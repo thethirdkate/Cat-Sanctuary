@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41ee1854644b6642b4b26a4f902a90b, type: 3}
+  m_Name: SmallBed
+  m_EditorClassIdentifier: 
+  displayName: Small Bed
+  canBePlaced: 1
+  itemType: 1
+  itemSprite: {fileID: 21300000, guid: a113634cdc921754098d4ea18aa0562f, type: 3}
+  itemPrefab: {fileID: 211798976646156976, guid: 4ef2ed091f2924c4aae274161e97cf5b,
+    type: 3}

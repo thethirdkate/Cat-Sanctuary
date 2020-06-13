@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1092264046216980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4346477805796144}
+  - component: {fileID: 114727541532907546}
+  m_Layer: 0
+  m_Name: CatInstance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4346477805796144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092264046216980}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -37.641468, y: 442.80215, z: 3.7407184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114727541532907546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092264046216980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a179a83546f2124b9350fd9e2cc380f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catScriptable: {fileID: 11400000, guid: ddb4972d6ee039b47abff46bf42ad298, type: 2}
+  itemInventory: {fileID: 0}
+  roomItemsManager: {fileID: 0}
+  hungerRate: 0.3
+  maxHunger: 10
+  maxTreats: 3
+  treatRate: 0.2
+  currentTreats: 0
+  maxPets: 3
+  petRate: 0.2
+  maxTrust: 10
+  tiredRate: 0.3
+  maxTired: 10
+  currentHappiness: 50
+  catTraits: []
+  currentTrust: 0
+  currentHunger: 0
+  currentTiredness: 5
+  catUIInstance: {fileID: 0}
+  catSprite: {fileID: 0}
+  sittingSprite: {fileID: 21300000, guid: c81c4870590b4244589bb931cf5b18b0, type: 3}
+  playingSprite: {fileID: 21300000, guid: 8635735f58e1cf34a93fcc5977048bd9, type: 3}
+  eatingSprite: {fileID: 21300000, guid: 767e6b19381ed1246a89693c54579697, type: 3}
+  sleepingSprite: {fileID: 21300000, guid: 8e12e1637d9dc01489aa120e646f4c85, type: 3}
