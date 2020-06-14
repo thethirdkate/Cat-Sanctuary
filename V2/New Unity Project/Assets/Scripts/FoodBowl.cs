@@ -29,7 +29,7 @@ public class FoodBowl : InteractiveObject {
 		bowlWorldText.text = currentFood + "/" + maxFood;
 
 		//this it to update the 3d visual of the bowl
-		foodMesh.SetActive(currentFood == maxFood);
+		foodMesh.SetActive(currentFood > 0);
 
 	}
 

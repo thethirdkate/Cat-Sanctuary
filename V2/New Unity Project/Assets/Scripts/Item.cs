@@ -20,7 +20,7 @@ public class Item : ScriptableObject {
 
 	
 	public enum ItemType {
-		Toy, Furniture, Decor
+		Toy, Furniture, Decor, FoodBowl
 	}
 
 

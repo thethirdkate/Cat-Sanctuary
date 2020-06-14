@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemInventory : MonoBehaviour {
 
-	public FoodBowl foodBowl;
+	//public FoodBowl foodBowl;
 
 	// Use this for initialization
 	void Start () {

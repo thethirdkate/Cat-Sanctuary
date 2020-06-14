@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6510430844806669557}
+  - component: {fileID: 5447560190355428996}
   m_Layer: 0
   m_Name: ChairPrefab
   m_TagString: Untagged
@@ -29,9 +30,23 @@ Transform:
   m_Children:
   - {fileID: 6914622944408436457}
   - {fileID: 6924348858840658352}
+  - {fileID: 1329102303293486234}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5447560190355428996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211798976646156976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ad8b996f93dd746b1208ca1a26bf1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catPosition: {fileID: 1329102303293486234}
 --- !u!1 &1023428727174413541
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +74,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023428727174413541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.43, y: 2.15, z: -6.15}
+  m_LocalPosition: {x: 0, y: 1.336, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.24662}
   m_Children: []
   m_Father: {fileID: 6510430844806669557}
@@ -152,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450341208689268136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.43, y: 1.12, z: -6.55}
+  m_LocalPosition: {x: 0, y: 0.5, z: -0.37}
   m_LocalScale: {x: 1, y: 1, z: 0.88026077}
   m_Children: []
   m_Father: {fileID: 6510430844806669557}
@@ -218,3 +233,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8107424443847390299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329102303293486234}
+  m_Layer: 0
+  m_Name: CatPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1329102303293486234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107424443847390299}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -0.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6510430844806669557}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

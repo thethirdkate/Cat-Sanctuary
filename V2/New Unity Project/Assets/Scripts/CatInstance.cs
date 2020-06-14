@@ -68,6 +68,8 @@ public class CatInstance : MonoBehaviour {
 
 	public Action currentAction;
 
+	public ItemSpace currentSpace;
+
 
 	// Use this for initialization
 	void Start () {
@@ -119,7 +121,8 @@ public class CatInstance : MonoBehaviour {
 		eatingAction.actionName = "eating";
 		eatingAction.weight = 4;
 		eatingAction.actionSprite = eatingSprite;
-		eatingAction.itemRequired = false;
+		eatingAction.itemRequired = true;
+		eatingAction.itemType = "foodBowl";
 
 		playingAction = new Action();
 		playingAction.actionName = "playing";
@@ -167,6 +170,10 @@ public class CatInstance : MonoBehaviour {
 		currentTreats -= treatRate;
 		if (currentTreats<0) { currentTreats = 0; }
 
+
+		//we're going to need a new bunch of logic to handle
+		//the cat going to the food bowl and then eating
+/*
 		//Any happiness boosts/reductions
 		if (currentHunger<=3 && currentHappiness>30) {
 			currentHappiness -= 10;
@@ -186,6 +193,7 @@ public class CatInstance : MonoBehaviour {
 			currentHappiness+=5;
 			itemInventory.foodBowl.ReduceFood(1);
 		}
+*/
 
 		if (currentTiredness>0 && currentAction != sleepingAction) {
 			currentTiredness-=tiredRate; //in future this will probably be more of a drop-off curve
@@ -234,12 +242,15 @@ public class CatInstance : MonoBehaviour {
 
 		//OVERRIDES
 
+		/*
 		//if there is no food, the weight is 0
+		//UPDATE: changed this - a hungry cat will still go to the bowl, just not eat
 		if (itemInventory.foodBowl.currentFood==0) {
 			eatingAction.weight = 0;
 			//TO DO: 
 			//reduce happiness ?
 		}
+		*/
 
 		//end of overrides
 
@@ -285,11 +296,15 @@ public class CatInstance : MonoBehaviour {
 		     //now choose an item to go and do it with
 		     ItemSpace newSpace = ChooseObject(chosenAction.itemType);
 
-		     if (newSpace==null) { Debug.Log("no item found"); }
+		     if (newSpace==null) { Debug.Log("no item found of type " + chosenAction.itemType); }
 		     else {
+
 		     	//set the cat to go to the new item
 		     	//Debug.Log("going to " + newSpace.currentItem.displayName);
 		     	catSprite.GoToObject(newSpace.transform);
+		     	newSpace.isInUse = true;
+		     	if (currentSpace != null) { currentSpace.isInUse = false; }
+		     	currentSpace = newSpace;
 		     } 
 		 }
 
@@ -301,14 +316,38 @@ public class CatInstance : MonoBehaviour {
 
 		//first of all, let's call a function in the room items manager to get a list of relevant items
 		List<ItemSpace> itemList = new List<ItemSpace>();
-		itemList = roomItemsManager.FindRoomItemsOfType(itemType);
+		itemList = roomItemsManager.FindRoomItemsOfType(itemType, true);
 
 		//if none are avialable, return null
 		if (itemList == null) { return null; }
 
-		//otherwise, pick one at random
 
-		return itemList[Random.Range(0,itemList.Count)];
+		//we'll put in some extra checks for special cases - e.g. food bowls, try to pick one that isn't empty
+		if (itemType=="foodBowl") {
+			List<ItemSpace> fullBowlList = new List<ItemSpace>();
+			foreach (ItemSpace someItemSpace in itemList) {
+				if (someItemSpace.transform.GetChild(0).GetComponent<FoodBowl>().currentFood>0) {
+					Debug.Log("this food bowl has food");
+					fullBowlList.Add(someItemSpace); 
+				}
+			}
+			//basically, if there are non-empty bowls, we'll return a list of those
+			//if they are all empty, the cat will still go to one of the empty bowls
+			//and just look sad about it
+			if (fullBowlList.Count==0) { 
+				return itemList[Random.Range(0,itemList.Count)];
+				Debug.Log("there were no food in bowls");
+			}		
+			else {
+				//otherwise, pick one at random
+				return fullBowlList[Random.Range(0,fullBowlList.Count)]; 
+			}
+		}
+
+		else {
+			//otherwise, pick one at random
+			return itemList[Random.Range(0,itemList.Count)];
+		}
 
 
 	}

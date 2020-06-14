@@ -65,7 +65,8 @@ public class CatCreator : MonoBehaviour {
 			//link them all up
 			newCatInstance.GetComponent<CatInstance>().catUIInstance = newCatUIInstance.GetComponent<CatUIManager>();
 			newCatUIInstance.GetComponent<CatUIManager>().catInstance = newCatInstance.GetComponent<CatInstance>();
-			
+			newCatSprite.GetComponent<CatInteractions>().catInstance = newCatInstance.GetComponent<CatInstance>();
+
 			newCatInstance.GetComponent<CatInstance>().catSprite = newCatSprite.GetComponent<CatSpriteController>();
 
 			//now create the cat from the scriptable and attach it to that

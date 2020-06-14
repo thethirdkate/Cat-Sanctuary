@@ -17,9 +17,8 @@ public class RoomItemsManager : MonoBehaviour {
 
 	//this fuction returns a list of available items currently in the room
 	//of a given type
-	//note: there is currently no concept of items being available/in use
 
-	public List<ItemSpace> FindRoomItemsOfType(string itemType) {
+	public List<ItemSpace> FindRoomItemsOfType(string itemType, bool checkIfAvailable = false) {
 
 		//create a new list
 		List<ItemSpace> itemList = new List<ItemSpace>();
@@ -33,8 +32,12 @@ public class RoomItemsManager : MonoBehaviour {
 			if (itemType.ToLower()==someItemSpace.currentItem.itemType.ToString().ToLower()) {
 
 				//if so, add it to the list
-			
-				itemList.Add(someItemSpace);
+
+				//if we're also doing an availability check, add an extra check
+				if (checkIfAvailable) {
+					if (!someItemSpace.isInUse) { itemList.Add(someItemSpace); }
+				}
+				else { itemList.Add(someItemSpace); }
 
 			}
 		}
